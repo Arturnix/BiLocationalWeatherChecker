@@ -36,3 +36,7 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### class ###
+pl.arturzgodka.weatherapp.APICredentials
+src/main/java/pl/arturzgodka/weatherapp/APICredentials.java
