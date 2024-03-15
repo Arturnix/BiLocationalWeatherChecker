@@ -10,6 +10,7 @@ module pl.arturzgodka.weatherapp {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.net.http;
 
     opens pl.arturzgodka.weatherapp to javafx.fxml;
     opens pl.arturzgodka.weatherapp.controller;
