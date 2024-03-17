@@ -1,9 +1,13 @@
 package pl.arturzgodka.weatherapp.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import pl.arturzgodka.weatherapp.APICredentials;
 import pl.arturzgodka.weatherapp.model.WeatherClient;
+import pl.arturzgodka.weatherapp.model.WeatherMapper;
 
 public class MainWindowController {
     @FXML
@@ -15,9 +19,9 @@ public class MainWindowController {
     @FXML
     void checkWeatherBtnAction() {
 
-        WeatherClient weatherClient = new WeatherClient();
-        System.out.println(weatherClient.fetchAPIResourceRequest(buildPresentCityUrl()));
-        System.out.println(weatherClient.fetchAPIResourceRequest(buildDestinationCityUrl()));
+        WeatherMapper weatherMapper = new WeatherMapper();
+        System.out.println(weatherMapper.fetchWeatherToDataModel((buildPresentCityUrl())));
+        System.out.println(weatherMapper.fetchWeatherToDataModel((buildDestinationCityUrl())));
     }
 
     private String buildPresentCityUrl() {

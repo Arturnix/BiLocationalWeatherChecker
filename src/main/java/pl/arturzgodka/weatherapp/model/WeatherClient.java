@@ -9,9 +9,9 @@ import java.net.http.HttpResponse;
 
 public class WeatherClient {
 
-    private final HttpClient httpClient = HttpClient.newHttpClient();
+    private static final HttpClient httpClient = HttpClient.newHttpClient();
 
-    public String fetchAPIResourceRequest(String weatherUrl) {
+    public static String fetchAPIResourceRequest(String weatherUrl) {
 
         try {
             HttpRequest request = HttpRequest.newBuilder()
