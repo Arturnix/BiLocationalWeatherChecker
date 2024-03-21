@@ -31,10 +31,22 @@ public class MainWindowController {
     private Label thatCityCurrentDate;
 
     @FXML
+    private Label thatCityHumidity;
+
+    @FXML
     private Label thatCityNameLabel;
 
     @FXML
+    private Label thatCityPressure;
+
+    @FXML
+    private Label thatCityTemperature;
+
+    @FXML
     private Pane thatCityTodayWeatherPane;
+
+    @FXML
+    private Label thatCityWeatherDescription;
 
     @FXML
     private Label thisCityCurrentDate;
