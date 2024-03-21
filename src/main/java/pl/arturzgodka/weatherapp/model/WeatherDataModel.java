@@ -7,15 +7,17 @@ public class WeatherDataModel {
     private final String description;
     private final String cityName;
     private final long timeStamp;
+    private final int timezoneSecondsFromUTC;
 
 
-    public WeatherDataModel(int tempCelsius, int pressure, int humidityPercentage, String description, String cityName, long timeStamp) {
+    public WeatherDataModel(int tempCelsius, int pressure, int humidityPercentage, String description, String cityName, long timeStamp, int timezoneSecondsFromUTC) {
         this.tempCelsius = tempCelsius;
         this.pressure = pressure;
         this.humidityPercentage = humidityPercentage;
         this.description = description;
         this.cityName = cityName;
         this.timeStamp = timeStamp;
+        this.timezoneSecondsFromUTC = timezoneSecondsFromUTC;
     }
 
     public int getTempCelsius() {
@@ -40,6 +42,10 @@ public class WeatherDataModel {
 
     public long getTimeStamp() {
         return timeStamp;
+    }
+
+    public int getTimezoneSecondsFromUTC() {
+        return timezoneSecondsFromUTC;
     }
 
     @Override

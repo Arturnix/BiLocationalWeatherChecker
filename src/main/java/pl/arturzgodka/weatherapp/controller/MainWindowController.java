@@ -82,8 +82,8 @@ public class MainWindowController {
         thatCityNameLabel.setText(destinationCityDataModel.getCityName());
 
         //zrobic transformacje stref czasowych aby pokazywac wlasciwe wartosci obecnej godziny i daty na miesjcu
-        thisCityCurrentDate.setText(provideLocalDateAndTime(presentCityDataModel.getTimeStamp()));
-        thatCityCurrentDate.setText(provideLocalDateAndTime(destinationCityDataModel.getTimeStamp()));
+        thisCityCurrentDate.setText(provideLocalDateAndTime(convertTimeStampToLocalTimeZoneUTC(presentCityDataModel.getTimeStamp(), presentCityDataModel.getTimezoneSecondsFromUTC())));
+        thatCityCurrentDate.setText(provideLocalDateAndTime(convertTimeStampToLocalTimeZoneUTC(destinationCityDataModel.getTimeStamp(), destinationCityDataModel.getTimezoneSecondsFromUTC())));
 
         thisCityTemperature.setText("Temperature: " + presentCityDataModel.getTempCelsius() + " \u2103");
         thisCityPressure.setText("Pressure: " + presentCityDataModel.getPressure() + " hPa");
@@ -129,5 +129,9 @@ public class MainWindowController {
 
     private String provideLocalDateAndTime(Long unixDateAndTime) {
         return fromTimestamp(unixDateAndTime).toString().replaceAll("[TZ]", " ");
+    }
+
+    private long convertTimeStampToLocalTimeZoneUTC(long unixDateAndTime, int timeShiftUTC) {
+       return unixDateAndTime + timeShiftUTC;
     }
 }
