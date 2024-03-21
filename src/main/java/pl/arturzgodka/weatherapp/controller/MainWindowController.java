@@ -40,10 +40,22 @@ public class MainWindowController {
     private Label thisCityCurrentDate;
 
     @FXML
+    private Label thisCityHumidity;
+
+    @FXML
     private Label thisCityNameLabel;
 
     @FXML
+    private Label thisCityPressure;
+
+    @FXML
+    private Label thisCityTemperature;
+
+    @FXML
     private Pane thisCityTodayWeatherPane;
+
+    @FXML
+    private Label thisCityWeatherDescription;
 
     @FXML
     void checkWeatherBtnAction() {
@@ -57,10 +69,9 @@ public class MainWindowController {
         thisCityNameLabel.setText(weatherMapper.fetchWeatherToDataModel((buildPresentCityUrl())).getCityName());
         thatCityNameLabel.setText(weatherMapper.fetchWeatherToDataModel(buildDestinationCityUrl()).getCityName());
         //zrobic transformacje stref czasowych aby pokazywac wlasciwe wartosci obecnej godziny i daty na miesjcu
+
         thisCityCurrentDate.setText(provideLocalDateAndTime(presentCityDataModel.getTimeStamp()));
         thatCityCurrentDate.setText(provideLocalDateAndTime(destinationCityDataModel.getTimeStamp()));
-
-        
 
         presentCityInput.setText("");
         destinationCityInput.setText("");
