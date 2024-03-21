@@ -66,12 +66,17 @@ public class MainWindowController {
         System.out.println(presentCityDataModel.toString());
         System.out.println(destinationCityDataModel.toString());
 
-        thisCityNameLabel.setText(weatherMapper.fetchWeatherToDataModel((buildPresentCityUrl())).getCityName());
-        thatCityNameLabel.setText(weatherMapper.fetchWeatherToDataModel(buildDestinationCityUrl()).getCityName());
-        //zrobic transformacje stref czasowych aby pokazywac wlasciwe wartosci obecnej godziny i daty na miesjcu
+        thisCityNameLabel.setText(presentCityDataModel.getCityName());
+        thatCityNameLabel.setText(destinationCityDataModel.getCityName());
 
+        //zrobic transformacje stref czasowych aby pokazywac wlasciwe wartosci obecnej godziny i daty na miesjcu
         thisCityCurrentDate.setText(provideLocalDateAndTime(presentCityDataModel.getTimeStamp()));
         thatCityCurrentDate.setText(provideLocalDateAndTime(destinationCityDataModel.getTimeStamp()));
+
+        thisCityTemperature.setText("Temperature: " + presentCityDataModel.getTempCelsius());
+        thisCityPressure.setText("Pressure: " + presentCityDataModel.getPressure());
+        thisCityHumidity.setText("Humidity: " + presentCityDataModel.getHumidityPercentage() + "%");
+        thisCityWeatherDescription.setText("Weather condition: " + presentCityDataModel.getDescription());
 
         presentCityInput.setText("");
         destinationCityInput.setText("");
