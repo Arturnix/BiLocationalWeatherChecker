@@ -3,11 +3,12 @@ package pl.arturzgodka.weatherapp.model;
 public class WeatherDataModel {
     private final int tempCelsius;
     private final int pressure;
-    private final int humidityPercentage;
+    private  int humidityPercentage;
     private final String description;
-    private final String cityName;
-    private final long timeStamp;
-    private final int timezoneSecondsFromUTC;
+    private String cityName;
+    private long timeStamp;
+    private int timezoneSecondsFromUTC;
+    private String dateAndTimeStampFetched;
 
 
     public WeatherDataModel(int tempCelsius, int pressure, int humidityPercentage, String description, String cityName, long timeStamp, int timezoneSecondsFromUTC) {
@@ -18,6 +19,13 @@ public class WeatherDataModel {
         this.cityName = cityName;
         this.timeStamp = timeStamp;
         this.timezoneSecondsFromUTC = timezoneSecondsFromUTC;
+    }
+
+    public WeatherDataModel(int tempCelsius, int pressure, String description, String dateAndTimeStampFetched) {
+        this.tempCelsius = tempCelsius;
+        this.pressure = pressure;
+        this.description = description;
+        this.dateAndTimeStampFetched = dateAndTimeStampFetched;
     }
 
     public int getTempCelsius() {
@@ -46,6 +54,10 @@ public class WeatherDataModel {
 
     public int getTimezoneSecondsFromUTC() {
         return timezoneSecondsFromUTC;
+    }
+
+    public String getDateAndTimeStampFetched() {
+        return dateAndTimeStampFetched;
     }
 
     @Override

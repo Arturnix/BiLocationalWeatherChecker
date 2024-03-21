@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import pl.arturzgodka.weatherapp.APICredentials;
+import pl.arturzgodka.weatherapp.model.Weather5DaysForecastMapper;
 import pl.arturzgodka.weatherapp.model.WeatherClient;
 import pl.arturzgodka.weatherapp.model.WeatherDataModel;
 import pl.arturzgodka.weatherapp.model.WeatherMapper;
@@ -73,28 +74,28 @@ public class MainWindowController {
     void checkWeatherBtnAction() {
 
         WeatherMapper weatherMapper = new WeatherMapper();
-        WeatherDataModel presentCityDataModel = weatherMapper.fetchWeatherToDataModel(buildPresentCityUrl());
+        Weather5DaysForecastMapper weather5DaysForecastMapper = new Weather5DaysForecastMapper();
+        /*WeatherDataModel presentCityDataModel = weatherMapper.fetchWeatherToDataModel(buildPresentCityUrl());
         WeatherDataModel destinationCityDataModel = weatherMapper.fetchWeatherToDataModel(buildDestinationCityUrl());
         System.out.println(presentCityDataModel.toString());
         System.out.println(destinationCityDataModel.toString());
 
-        thisCityNameLabel.setText(presentCityDataModel.getCityName());
-        thatCityNameLabel.setText(destinationCityDataModel.getCityName());
-
         //zrobic transformacje stref czasowych aby pokazywac wlasciwe wartosci obecnej godziny i daty na miesjcu
+        thisCityNameLabel.setText(presentCityDataModel.getCityName());
         thisCityCurrentDate.setText(provideLocalDateAndTime(convertTimeStampToLocalTimeZoneUTC(presentCityDataModel.getTimeStamp(), presentCityDataModel.getTimezoneSecondsFromUTC())));
-        thatCityCurrentDate.setText(provideLocalDateAndTime(convertTimeStampToLocalTimeZoneUTC(destinationCityDataModel.getTimeStamp(), destinationCityDataModel.getTimezoneSecondsFromUTC())));
-
         thisCityTemperature.setText("Temperature: " + presentCityDataModel.getTempCelsius() + " \u2103");
         thisCityPressure.setText("Pressure: " + presentCityDataModel.getPressure() + " hPa");
         thisCityHumidity.setText("Humidity: " + presentCityDataModel.getHumidityPercentage() + "%");
         thisCityWeatherDescription.setText("Weather condition: " + presentCityDataModel.getDescription());
 
+        thatCityNameLabel.setText(destinationCityDataModel.getCityName());
+        thatCityCurrentDate.setText(provideLocalDateAndTime(convertTimeStampToLocalTimeZoneUTC(destinationCityDataModel.getTimeStamp(), destinationCityDataModel.getTimezoneSecondsFromUTC())));
         thatCityTemperature.setText("Temperature: " + destinationCityDataModel.getTempCelsius() + " \u2103");
         thatCityPressure.setText("Pressure: " + destinationCityDataModel.getPressure() + " hPa");
         thatCityHumidity.setText("Humidity: " + destinationCityDataModel.getHumidityPercentage() + "%");
         thatCityWeatherDescription.setText("Weather condition: " + destinationCityDataModel.getDescription());
-
+*/
+        System.out.println(weather5DaysForecastMapper.fetchWeatherToDataModel(buildPresentCityUrl5DaysForecast()));
         presentCityInput.setText("");
         destinationCityInput.setText("");
     }
@@ -111,10 +112,34 @@ public class MainWindowController {
         return apiRequestUrlPresentCity.toString();
     }
 
+    private String buildPresentCityUrl5DaysForecast() {
+
+        StringBuilder apiRequestUrlPresentCity = new StringBuilder();
+        apiRequestUrlPresentCity.append("https://api.openweathermap.org/data/2.5/forecast?q=")
+                .append(presentCityInput.getText())
+                .append("&appid=")
+                .append(APICredentials.APIKey)
+                .append("&units=metric");
+
+        return apiRequestUrlPresentCity.toString();
+    }
+
     private String buildDestinationCityUrl() {
 
         StringBuilder apiRequestUrlDestinationCity = new StringBuilder();
         apiRequestUrlDestinationCity.append("https://api.openweathermap.org/data/2.5/weather?q=")
+                .append(destinationCityInput.getText())
+                .append("&appid=")
+                .append(APICredentials.APIKey)
+                .append("&units=metric");
+
+        return apiRequestUrlDestinationCity.toString();
+    }
+
+    private String buildDestinationCityUrl5DaysForecast() {
+
+        StringBuilder apiRequestUrlDestinationCity = new StringBuilder();
+        apiRequestUrlDestinationCity.append("https://api.openweathermap.org/data/2.5/forecast?q=")
                 .append(destinationCityInput.getText())
                 .append("&appid=")
                 .append(APICredentials.APIKey)
