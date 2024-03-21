@@ -12,5 +12,18 @@
       <TextField fx:id="presentCityInput" layoutX="105.0" layoutY="42.0" prefHeight="25.0" prefWidth="279.0" />
       <TextField fx:id="destinationCityInput" layoutX="571.0" layoutY="42.0" prefHeight="25.0" prefWidth="266.0" />
       <Button layoutX="381.0" layoutY="102.0" mnemonicParsing="false" onAction="#checkWeatherBtnAction" text="Sprawdź pogodę" />
+      <Pane fx:id="thisCityTodayWeatherPane" layoutX="42.0" layoutY="149.0" prefHeight="173.0" prefWidth="334.0">
+         <children>
+            <Label fx:id="thisCityNameLabel" layoutX="14.0" layoutY="20.0" prefHeight="17.0" prefWidth="142.0" />
+            <Label fx:id="thisCityCurrentDate" layoutX="167.0" layoutY="20.0" prefHeight="17.0" prefWidth="161.0" />
+         </children>
+      </Pane>
+      <Pane fx:id="thatCityTodayWeatherPane" layoutX="503.0" layoutY="149.0" prefHeight="173.0" prefWidth="334.0">
+         <children>
+            <Label fx:id="thatCityNameLabel" layoutX="14.0" layoutY="20.0" prefHeight="17.0" prefWidth="142.0" />
+            <Label fx:id="thatCityCurrentDate" layoutX="167.0" layoutY="20.0" prefHeight="17.0" prefWidth="161.0" />
+         </children>
+      </Pane>
+      <Label fx:id="errorMessageOutput" layoutX="348.0" layoutY="14.0" prefHeight="17.0" prefWidth="279.0" />
    </children>
 </Pane>

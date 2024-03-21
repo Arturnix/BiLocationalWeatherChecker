@@ -22,7 +22,9 @@ public class WeatherMapper {
                 node.get("main").get("temp").asInt(),
                 node.get("main").get("pressure").asInt(),
                 node.get("main").get("humidity").asInt(),
-                node.get("weather").get(0).get("description").asText()
+                node.get("weather").get(0).get("description").asText(),
+                node.get("name").asText(),
+                node.get("dt").asLong()
         );
     }
 }
