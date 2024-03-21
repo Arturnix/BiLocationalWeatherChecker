@@ -85,10 +85,15 @@ public class MainWindowController {
         thisCityCurrentDate.setText(provideLocalDateAndTime(presentCityDataModel.getTimeStamp()));
         thatCityCurrentDate.setText(provideLocalDateAndTime(destinationCityDataModel.getTimeStamp()));
 
-        thisCityTemperature.setText("Temperature: " + presentCityDataModel.getTempCelsius());
-        thisCityPressure.setText("Pressure: " + presentCityDataModel.getPressure());
+        thisCityTemperature.setText("Temperature: " + presentCityDataModel.getTempCelsius() + " \u2103");
+        thisCityPressure.setText("Pressure: " + presentCityDataModel.getPressure() + " hPa");
         thisCityHumidity.setText("Humidity: " + presentCityDataModel.getHumidityPercentage() + "%");
         thisCityWeatherDescription.setText("Weather condition: " + presentCityDataModel.getDescription());
+
+        thatCityTemperature.setText("Temperature: " + destinationCityDataModel.getTempCelsius() + " \u2103");
+        thatCityPressure.setText("Pressure: " + destinationCityDataModel.getPressure() + " hPa");
+        thatCityHumidity.setText("Humidity: " + destinationCityDataModel.getHumidityPercentage() + "%");
+        thatCityWeatherDescription.setText("Weather condition: " + destinationCityDataModel.getDescription());
 
         presentCityInput.setText("");
         destinationCityInput.setText("");
