@@ -73,10 +73,13 @@ public class MainWindowController {
     private Pane thisCityTodayWeatherPane, thisCity5DaysForecastPane;
 
     @FXML
-    private Pane thatCityTodayWeatherPane, thtCity5DaysForecastPane;
+    private Pane thatCityTodayWeatherPane, thatCity5DaysForecastPane;
 
     @FXML
     void checkWeatherBtnAction() {
+
+        thisCity5DaysForecastPane.setVisible(false);
+        thatCity5DaysForecastPane.setVisible(false);
 
         WeatherMapper weatherMapper = new WeatherMapper();
         Weather5DaysForecastMapper weather5DaysForecastMapper = new Weather5DaysForecastMapper();
@@ -93,10 +96,13 @@ public class MainWindowController {
         System.out.println(weather5DaysForecastMapper.fetchWeatherToDataModel(buildPresentCityUrl5DaysForecast()));
 
         showPresentCity5DaysForecast(presentCity5DaysForecast, weather5DaysForecastMapper);
+        showDestinationCity5DaysForecast(destinationCity5DaysForecast, weather5DaysForecastMapper);
 
         presentCityInput.setText("");
         destinationCityInput.setText("");
         thisCity5DaysForecastPane.setVisible(true);
+        thatCity5DaysForecastPane.setVisible(true);
+
     }
 
     private void showCurrentWeatherFieldsInPresentCity(WeatherDataModel presentCityDataModel) {
@@ -165,6 +171,54 @@ public class MainWindowController {
         thisCityDay5Pressure.setText(presentCity5DaysForecast.get(4).getPressure() + " hPa");
         thisCityDay5Description.setText(presentCity5DaysForecast.get(4).getDescription());
         thisCityDay5Date.setText(weather5DaysForecastMapper.fetchWeatherToDataModel(buildPresentCityUrl5DaysForecast()).get(4).getDateAndTimeStampFetched().substring(0, 10));
+    }
+
+    private void showDestinationCity5DaysForecast(List<WeatherDataModel> destinationCity5DaysForecast, Weather5DaysForecastMapper weather5DaysForecastMapper) {
+        showDay1WeatherInDestinationCity(destinationCity5DaysForecast, weather5DaysForecastMapper);
+        showDay2WeatherInDestinationCity(destinationCity5DaysForecast, weather5DaysForecastMapper);
+        showDay3WeatherInDestinationCity(destinationCity5DaysForecast, weather5DaysForecastMapper);
+        showDay4WeatherInDestinationCity(destinationCity5DaysForecast, weather5DaysForecastMapper);
+        showDay5WeatherInDestinationCity(destinationCity5DaysForecast, weather5DaysForecastMapper);
+    }
+
+    private void showDay1WeatherInDestinationCity(List<WeatherDataModel> destinationCity5DaysForecast, Weather5DaysForecastMapper weather5DaysForecastMapper) {
+
+        thatCityDay1Temp.setText(destinationCity5DaysForecast.get(0).getTempCelsius() + " \u2103");
+        thatCityDay1Pressure.setText(destinationCity5DaysForecast.get(0).getPressure() + " hPa");
+        thatCityDay1Description.setText(destinationCity5DaysForecast.get(0).getDescription());
+        thatCityDay1Date.setText(weather5DaysForecastMapper.fetchWeatherToDataModel(buildDestinationCityUrl5DaysForecast()).get(0).getDateAndTimeStampFetched().substring(0, 10));
+    }
+
+    private void showDay2WeatherInDestinationCity(List<WeatherDataModel> destinationCity5DaysForecast, Weather5DaysForecastMapper weather5DaysForecastMapper) {
+
+        thatCityDay2Temp.setText(destinationCity5DaysForecast.get(1).getTempCelsius() + " \u2103");
+        thatCityDay2Pressure.setText(destinationCity5DaysForecast.get(1).getPressure() + " hPa");
+        thatCityDay2Description.setText(destinationCity5DaysForecast.get(1).getDescription());
+        thatCityDay2Date.setText(weather5DaysForecastMapper.fetchWeatherToDataModel(buildDestinationCityUrl5DaysForecast()).get(1).getDateAndTimeStampFetched().substring(0, 10));
+    }
+
+    private void showDay3WeatherInDestinationCity(List<WeatherDataModel> destinationCity5DaysForecast, Weather5DaysForecastMapper weather5DaysForecastMapper) {
+
+        thatCityDay3Temp.setText(destinationCity5DaysForecast.get(2).getTempCelsius() + " \u2103");
+        thatCityDay3Pressure.setText(destinationCity5DaysForecast.get(2).getPressure() + " hPa");
+        thatCityDay3Description.setText(destinationCity5DaysForecast.get(2).getDescription());
+        thatCityDay3Date.setText(weather5DaysForecastMapper.fetchWeatherToDataModel(buildDestinationCityUrl5DaysForecast()).get(2).getDateAndTimeStampFetched().substring(0, 10));
+    }
+
+    private void showDay4WeatherInDestinationCity(List<WeatherDataModel> destinationCity5DaysForecast, Weather5DaysForecastMapper weather5DaysForecastMapper) {
+
+        thatCityDay4Temp.setText(destinationCity5DaysForecast.get(3).getTempCelsius() + " \u2103");
+        thatCityDay4Pressure.setText(destinationCity5DaysForecast.get(3).getPressure() + " hPa");
+        thatCityDay4Description.setText(destinationCity5DaysForecast.get(3).getDescription());
+        thatCityDay4Date.setText(weather5DaysForecastMapper.fetchWeatherToDataModel(buildDestinationCityUrl5DaysForecast()).get(3).getDateAndTimeStampFetched().substring(0, 10));
+    }
+
+    private void showDay5WeatherInDestinationCity(List<WeatherDataModel> destinationCity5DaysForecast, Weather5DaysForecastMapper weather5DaysForecastMapper) {
+
+        thatCityDay5Temp.setText(destinationCity5DaysForecast.get(4).getTempCelsius() + " \u2103");
+        thatCityDay5Pressure.setText(destinationCity5DaysForecast.get(4).getPressure() + " hPa");
+        thatCityDay5Description.setText(destinationCity5DaysForecast.get(4).getDescription());
+        thatCityDay5Date.setText(weather5DaysForecastMapper.fetchWeatherToDataModel(buildDestinationCityUrl5DaysForecast()).get(4).getDateAndTimeStampFetched().substring(0, 10));
     }
 
     private String buildPresentCityUrl() {
