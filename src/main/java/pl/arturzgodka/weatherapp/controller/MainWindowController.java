@@ -227,6 +227,7 @@ public class MainWindowController {
         WeatherMapper weatherMapper = new WeatherMapper();
         Weather5DaysForecastMapper weather5DaysForecastMapper = new Weather5DaysForecastMapper();
         List<WeatherDataModel> presentCity5DaysForecast = weather5DaysForecastMapper.fetchWeatherToDataModel(buildPresentCityUrl5DaysForecast());
+        List<WeatherDataModel> destinationCity5DaysForecast = weather5DaysForecastMapper.fetchWeatherToDataModel(buildDestinationCityUrl5DaysForecast());
         WeatherDataModel presentCityDataModel = weatherMapper.fetchWeatherToDataModel(buildPresentCityUrl());
         WeatherDataModel destinationCityDataModel = weatherMapper.fetchWeatherToDataModel(buildDestinationCityUrl());
         System.out.println(presentCityDataModel.toString());
@@ -237,11 +238,7 @@ public class MainWindowController {
 
         System.out.println(weather5DaysForecastMapper.fetchWeatherToDataModel(buildPresentCityUrl5DaysForecast()));
 
-        showDay1WeatherInPresentCity(presentCity5DaysForecast, weather5DaysForecastMapper);
-        showDay2WeatherInPresentCity(presentCity5DaysForecast, weather5DaysForecastMapper);
-        showDay3WeatherInPresentCity(presentCity5DaysForecast, weather5DaysForecastMapper);
-        showDay4WeatherInPresentCity(presentCity5DaysForecast, weather5DaysForecastMapper);
-        showDay5WeatherInPresentCity(presentCity5DaysForecast, weather5DaysForecastMapper);
+        showPresentCity5DaysForecast(presentCity5DaysForecast, weather5DaysForecastMapper);
 
         presentCityInput.setText("");
         destinationCityInput.setText("");
@@ -266,6 +263,14 @@ public class MainWindowController {
         thatCityPressure.setText("Pressure: " + destinationCityDataModel.getPressure() + " hPa");
         thatCityHumidity.setText("Humidity: " + destinationCityDataModel.getHumidityPercentage() + "%");
         thatCityWeatherDescription.setText("Weather condition: " + destinationCityDataModel.getDescription());
+    }
+
+    private void showPresentCity5DaysForecast(List<WeatherDataModel> presentCity5DaysForecast, Weather5DaysForecastMapper weather5DaysForecastMapper) {
+        showDay1WeatherInPresentCity(presentCity5DaysForecast, weather5DaysForecastMapper);
+        showDay2WeatherInPresentCity(presentCity5DaysForecast, weather5DaysForecastMapper);
+        showDay3WeatherInPresentCity(presentCity5DaysForecast, weather5DaysForecastMapper);
+        showDay4WeatherInPresentCity(presentCity5DaysForecast, weather5DaysForecastMapper);
+        showDay5WeatherInPresentCity(presentCity5DaysForecast, weather5DaysForecastMapper);
     }
 
     private void showDay1WeatherInPresentCity(List<WeatherDataModel> presentCity5DaysForecast, Weather5DaysForecastMapper weather5DaysForecastMapper) {
