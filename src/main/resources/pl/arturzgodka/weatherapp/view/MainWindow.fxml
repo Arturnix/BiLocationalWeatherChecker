@@ -33,5 +33,61 @@
             <Label fx:id="thatCityWeatherDescription" layoutX="14.0" layoutY="133.0" prefHeight="17.0" prefWidth="297.0" />
          </children>
       </Pane>
+      <Pane fx:id="thisCity5DaysForecastPane" layoutX="42.0" layoutY="322.0" prefHeight="200.0" prefWidth="334.0" visible="false">
+         <children>
+            <Label fx:id="thisCityDay1Temp" layoutX="14.0" layoutY="64.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thisCityDay2Temp" layoutX="14.0" layoutY="89.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thisCityDay3Temp" layoutX="14.0" layoutY="106.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thisCityDay4Temp" layoutX="14.0" layoutY="140.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thisCityDay5Temp" layoutX="14.0" layoutY="169.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thisCityDay1Pressure" layoutX="87.0" layoutY="63.0" prefHeight="17.0" prefWidth="45.0" />
+            <Label fx:id="thisCityDay1Description" layoutX="144.0" layoutY="63.0" prefHeight="17.0" prefWidth="95.0" />
+            <Label fx:id="thisCityDay1Date" layoutX="247.0" layoutY="63.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thisCityDay2Pressure" layoutX="87.0" layoutY="89.0" prefHeight="17.0" prefWidth="45.0" />
+            <Label fx:id="thisCityDay2Description" layoutX="144.0" layoutY="89.0" prefHeight="17.0" prefWidth="95.0" />
+            <Label fx:id="thisCityDay2Date" layoutX="247.0" layoutY="89.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thisCityDay3Pressure" layoutX="87.0" layoutY="114.0" prefHeight="17.0" prefWidth="45.0" />
+            <Label fx:id="thisCityDay3Description" layoutX="144.0" layoutY="114.0" prefHeight="17.0" prefWidth="95.0" />
+            <Label fx:id="thisCityDay3Date" layoutX="247.0" layoutY="114.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thisCityDay4Pressure" layoutX="87.0" layoutY="140.0" prefHeight="17.0" prefWidth="45.0" />
+            <Label fx:id="thisCityDay4Description" layoutX="144.0" layoutY="140.0" prefHeight="17.0" prefWidth="95.0" />
+            <Label fx:id="thisCityDay4Date" layoutX="247.0" layoutY="141.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thisCityDay5Pressure" layoutX="87.0" layoutY="169.0" prefHeight="17.0" prefWidth="45.0" />
+            <Label fx:id="thisCityDay5Description" layoutX="144.0" layoutY="169.0" prefHeight="17.0" prefWidth="95.0" />
+            <Label fx:id="thisCityDay5Date" layoutX="247.0" layoutY="169.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thisCity5DaysForecastTemperatureHeader" layoutX="14.0" layoutY="14.0" text="Temp." />
+            <Label fx:id="thisCity5DaysForecastPressureHeader" layoutX="87.0" layoutY="14.0" text="Press." />
+            <Label fx:id="thisCity5DaysForecastDescriptionHeader" layoutX="144.0" layoutY="14.0" text="Description" />
+            <Label fx:id="thisCity5DaysForecastDateHeader" layoutX="247.0" layoutY="14.0" text="Date" />
+         </children>
+      </Pane>
+      <Pane fx:id="thtCity5DaysForecastPane" layoutX="523.0" layoutY="322.0" prefHeight="200.0" prefWidth="334.0" visible="false">
+         <children>
+            <Label fx:id="thatCityDay1Temp" layoutX="14.0" layoutY="64.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thatCityDay2Temp" layoutX="14.0" layoutY="89.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thatCityDay3Temp" layoutX="14.0" layoutY="106.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thatCityDay4Temp" layoutX="14.0" layoutY="140.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thatCityDay5Temp" layoutX="14.0" layoutY="169.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thatCityDay1Pressure" layoutX="87.0" layoutY="63.0" prefHeight="17.0" prefWidth="45.0" />
+            <Label fx:id="thatCityDay1Description" layoutX="144.0" layoutY="63.0" prefHeight="17.0" prefWidth="95.0" />
+            <Label fx:id="thatCityDay1Date" layoutX="247.0" layoutY="63.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thatCityDay2Pressure" layoutX="87.0" layoutY="89.0" prefHeight="17.0" prefWidth="45.0" />
+            <Label fx:id="thatCityDay2Description" layoutX="144.0" layoutY="89.0" prefHeight="17.0" prefWidth="95.0" />
+            <Label fx:id="thatCityDay2Date" layoutX="247.0" layoutY="89.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thatCityDay3Pressure" layoutX="87.0" layoutY="105.0" prefHeight="17.0" prefWidth="45.0" />
+            <Label fx:id="thatCityDay3Description" layoutX="144.0" layoutY="106.0" prefHeight="17.0" prefWidth="95.0" />
+            <Label fx:id="thatCityDay3Date" layoutX="247.0" layoutY="106.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thatCityDay4Pressure" layoutX="87.0" layoutY="140.0" prefHeight="17.0" prefWidth="45.0" />
+            <Label fx:id="thatCityDay4Description" layoutX="144.0" layoutY="140.0" prefHeight="17.0" prefWidth="95.0" />
+            <Label fx:id="thatCityDay4Date" layoutX="247.0" layoutY="141.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thatCityDay5Pressure" layoutX="87.0" layoutY="169.0" prefHeight="17.0" prefWidth="45.0" />
+            <Label fx:id="thatCityDay5Description" layoutX="144.0" layoutY="169.0" prefHeight="17.0" prefWidth="95.0" />
+            <Label fx:id="thatCityDay5Date" layoutX="247.0" layoutY="169.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thatCity5DaysForecastTemperatureHeader" layoutX="27.0" layoutY="16.0" text="Temp." />
+            <Label fx:id="thatCity5DaysForecastPressureHeader" layoutX="100.0" layoutY="16.0" text="Press." />
+            <Label fx:id="thatCity5DaysForecastDescriptionHeader" layoutX="157.0" layoutY="16.0" text="Description" />
+            <Label fx:id="thatCity5DaysForecastDateHeader" layoutX="260.0" layoutY="16.0" text="Date" />
+         </children>
+      </Pane>
    </children>
 </Pane>
