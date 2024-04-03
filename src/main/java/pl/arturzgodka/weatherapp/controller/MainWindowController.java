@@ -20,206 +20,60 @@ import java.util.List;
 import static javafx.util.Duration.millis;
 
 public class MainWindowController {
+
     @FXML
-    private TextField destinationCityInput;
+    private TextField destinationCityInput, presentCityInput;
 
     @FXML
     private Label errorMessageOutput;
 
     @FXML
-    private TextField presentCityInput;
+    private Label thatCity5DaysForecastTemperatureHeader, thatCity5DaysForecastPressureHeader, thatCity5DaysForecastDescriptionHeader, thatCity5DaysForecastDateHeader;
 
     @FXML
-    private Label thatCity5DaysForecastDateHeader;
+    private Label thatCityNameLabel, thatCityTemperature, thatCityPressure, thatCityHumidity, thatCityWeatherDescription, thatCityCurrentDate;
 
     @FXML
-    private Label thatCity5DaysForecastDescriptionHeader;
+    private Label thatCityDay1Temp, thatCityDay1Pressure, thatCityDay1Description, thatCityDay1Date;
 
     @FXML
-    private Label thatCity5DaysForecastPressureHeader;
+    private Label thatCityDay2Temp, thatCityDay2Pressure, thatCityDay2Description, thatCityDay2Date;
 
     @FXML
-    private Label thatCity5DaysForecastTemperatureHeader;
+    private Label thatCityDay3Temp, thatCityDay3Pressure, thatCityDay3Description, thatCityDay3Date;
 
     @FXML
-    private Label thatCityCurrentDate;
+    private Label thatCityDay4Temp, thatCityDay4Pressure, thatCityDay4Description, thatCityDay4Date;
 
     @FXML
-    private Label thatCityDay1Date;
+    private Label thatCityDay5Temp, thatCityDay5Pressure, thatCityDay5Description, thatCityDay5Date;
 
     @FXML
-    private Label thatCityDay1Description;
+    private Label thisCity5DaysForecastTemperatureHeader, thisCity5DaysForecastPressureHeader, thisCity5DaysForecastDescriptionHeader, thisCity5DaysForecastDateHeader;
 
     @FXML
-    private Label thatCityDay1Pressure;
+    private Label thisCityDay1Temp, thisCityDay1Pressure, thisCityDay1Description, thisCityDay1Date;
 
     @FXML
-    private Label thatCityDay1Temp;
+    private Label thisCityDay2Temp, thisCityDay2Pressure, thisCityDay2Description, thisCityDay2Date;
 
     @FXML
-    private Label thatCityDay2Date;
+    private Label thisCityDay3Temp, thisCityDay3Pressure, thisCityDay3Description, thisCityDay3Date;
 
     @FXML
-    private Label thatCityDay2Description;
+    private Label thisCityDay4Temp, thisCityDay4Pressure, thisCityDay4Description, thisCityDay4Date;
 
     @FXML
-    private Label thatCityDay2Pressure;
+    private Label thisCityDay5Temp, thisCityDay5Pressure, thisCityDay5Description, thisCityDay5Date;
 
     @FXML
-    private Label thatCityDay2Temp;
+    private Label thisCityNameLabel, thisCityTemperature, thisCityPressure, thisCityHumidity, thisCityWeatherDescription, thisCityCurrentDate;
 
     @FXML
-    private Label thatCityDay3Date;
+    private Pane thisCityTodayWeatherPane, thisCity5DaysForecastPane;
 
     @FXML
-    private Label thatCityDay3Description;
-
-    @FXML
-    private Label thatCityDay3Pressure;
-
-    @FXML
-    private Label thatCityDay3Temp;
-
-    @FXML
-    private Label thatCityDay4Date;
-
-    @FXML
-    private Label thatCityDay4Description;
-
-    @FXML
-    private Label thatCityDay4Pressure;
-
-    @FXML
-    private Label thatCityDay4Temp;
-
-    @FXML
-    private Label thatCityDay5Date;
-
-    @FXML
-    private Label thatCityDay5Description;
-
-    @FXML
-    private Label thatCityDay5Pressure;
-
-    @FXML
-    private Label thatCityDay5Temp;
-
-    @FXML
-    private Label thatCityHumidity;
-
-    @FXML
-    private Label thatCityNameLabel;
-
-    @FXML
-    private Label thatCityPressure;
-
-    @FXML
-    private Label thatCityTemperature;
-
-    @FXML
-    private Pane thatCityTodayWeatherPane;
-
-    @FXML
-    private Label thatCityWeatherDescription;
-
-    @FXML
-    private Label thisCity5DaysForecastDateHeader;
-
-    @FXML
-    private Label thisCity5DaysForecastDescriptionHeader;
-
-    @FXML
-    private Pane thisCity5DaysForecastPane;
-
-    @FXML
-    private Label thisCity5DaysForecastPressureHeader;
-
-    @FXML
-    private Label thisCity5DaysForecastTemperatureHeader;
-
-    @FXML
-    private Label thisCityCurrentDate;
-
-    @FXML
-    private Label thisCityDay1Date;
-
-    @FXML
-    private Label thisCityDay1Description;
-
-    @FXML
-    private Label thisCityDay1Pressure;
-
-    @FXML
-    private Label thisCityDay1Temp;
-
-    @FXML
-    private Label thisCityDay2Date;
-
-    @FXML
-    private Label thisCityDay2Description;
-
-    @FXML
-    private Label thisCityDay2Pressure;
-
-    @FXML
-    private Label thisCityDay2Temp;
-
-    @FXML
-    private Label thisCityDay3Date;
-
-    @FXML
-    private Label thisCityDay3Description;
-
-    @FXML
-    private Label thisCityDay3Pressure;
-
-    @FXML
-    private Label thisCityDay3Temp;
-
-    @FXML
-    private Label thisCityDay4Date;
-
-    @FXML
-    private Label thisCityDay4Description;
-
-    @FXML
-    private Label thisCityDay4Pressure;
-
-    @FXML
-    private Label thisCityDay4Temp;
-
-    @FXML
-    private Label thisCityDay5Date;
-
-    @FXML
-    private Label thisCityDay5Description;
-
-    @FXML
-    private Label thisCityDay5Pressure;
-
-    @FXML
-    private Label thisCityDay5Temp;
-
-    @FXML
-    private Label thisCityHumidity;
-
-    @FXML
-    private Label thisCityNameLabel;
-
-    @FXML
-    private Label thisCityPressure;
-
-    @FXML
-    private Label thisCityTemperature;
-
-    @FXML
-    private Pane thisCityTodayWeatherPane;
-
-    @FXML
-    private Label thisCityWeatherDescription;
-
-    @FXML
-    private Pane thtCity5DaysForecastPane;
+    private Pane thatCityTodayWeatherPane, thtCity5DaysForecastPane;
 
     @FXML
     void checkWeatherBtnAction() {
