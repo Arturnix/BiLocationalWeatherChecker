@@ -1,5 +1,7 @@
 package pl.arturzgodka.weatherapp.model;
 
+import pl.arturzgodka.weatherapp.APICredentials;
+
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URI;
@@ -36,5 +38,53 @@ public class WeatherClient {
             e.printStackTrace();
         }
         return "";
+    }
+
+    public static String buildPresentCityUrl(String presentCityInput) {
+
+        StringBuilder apiRequestUrlPresentCity = new StringBuilder();
+        apiRequestUrlPresentCity.append("https://api.openweathermap.org/data/2.5/weather?q=")
+                .append(presentCityInput)
+                .append("&appid=")
+                .append(APICredentials.APIKey)
+                .append("&units=metric");
+
+        return apiRequestUrlPresentCity.toString();
+    }
+
+    public static String buildPresentCityUrl5DaysForecast(String presentCityInput) {
+
+        StringBuilder apiRequestUrlPresentCity = new StringBuilder();
+        apiRequestUrlPresentCity.append("https://api.openweathermap.org/data/2.5/forecast?q=")
+                .append(presentCityInput)
+                .append("&appid=")
+                .append(APICredentials.APIKey)
+                .append("&units=metric");
+
+        return apiRequestUrlPresentCity.toString();
+    }
+
+    public static String buildDestinationCityUrl(String destinationCityInput) {
+
+        StringBuilder apiRequestUrlDestinationCity = new StringBuilder();
+        apiRequestUrlDestinationCity.append("https://api.openweathermap.org/data/2.5/weather?q=")
+                .append(destinationCityInput)
+                .append("&appid=")
+                .append(APICredentials.APIKey)
+                .append("&units=metric");
+
+        return apiRequestUrlDestinationCity.toString();
+    }
+
+    public static String buildDestinationCityUrl5DaysForecast(String destinationCityInput) {
+
+        StringBuilder apiRequestUrlDestinationCity = new StringBuilder();
+        apiRequestUrlDestinationCity.append("https://api.openweathermap.org/data/2.5/forecast?q=")
+                .append(destinationCityInput)
+                .append("&appid=")
+                .append(APICredentials.APIKey)
+                .append("&units=metric");
+
+        return apiRequestUrlDestinationCity.toString();
     }
 }
