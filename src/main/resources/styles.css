@@ -1,0 +1,18 @@
+#mainPane {
+    -fx-background-color: "#dde5e9";
+    -fx-border-color: "0e6ba8";
+}
+
+#checkWeatherBtn {
+    -fx-color: "#00956f";
+    -fx-border-color: "#0c6b53";
+}
+
+#thisCityTodayWeatherPane,
+#thisCity5DaysForecastPane,
+#thatCityTodayWeatherPane,
+#thatCity5DaysForecastPane {
+    -fx-border-color: "#0c6b53";
+    -fx-border-radius: 45;
+    -fx-border-width: 2;
+}

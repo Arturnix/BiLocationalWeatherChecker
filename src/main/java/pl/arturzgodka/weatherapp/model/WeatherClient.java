@@ -40,6 +40,7 @@ public class WeatherClient {
         return "";
     }
 
+    //zrobic refactor, metod ponizej. Powtorzenia w append.
     public static String buildPresentCityUrl(String presentCityInput) {
 
         StringBuilder apiRequestUrlPresentCity = new StringBuilder();

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
@@ -76,10 +77,15 @@ public class MainWindowController {
     private Pane thatCityTodayWeatherPane, thatCity5DaysForecastPane;
 
     @FXML
+    private Pane mainPane;
+
+    @FXML
+    private Button checkWeatherBtn;
+
+    @FXML
     void checkWeatherBtnAction() {
 
-        thisCity5DaysForecastPane.setVisible(false);
-        thatCity5DaysForecastPane.setVisible(false);
+        setPaneVisibilityFalse();
 
         WeatherMapper weatherMapper = new WeatherMapper();
         Weather5DaysForecastMapper weather5DaysForecastMapper = new Weather5DaysForecastMapper();
@@ -98,11 +104,28 @@ public class MainWindowController {
         showPresentCity5DaysForecast(presentCity5DaysForecast, weather5DaysForecastMapper);
         showDestinationCity5DaysForecast(destinationCity5DaysForecast, weather5DaysForecastMapper);
 
-        presentCityInput.setText("");
-        destinationCityInput.setText("");
+        clearTextInputFields();
+        setPaneVisibilityTrue();
+
+    }
+
+    private void setPaneVisibilityFalse() {
+        thisCityTodayWeatherPane.setVisible(false);
+        thatCityTodayWeatherPane.setVisible(false);
+        thisCity5DaysForecastPane.setVisible(false);
+        thatCity5DaysForecastPane.setVisible(false);
+    }
+
+    private void setPaneVisibilityTrue() {
+        thisCityTodayWeatherPane.setVisible(true);
+        thatCityTodayWeatherPane.setVisible(true);
         thisCity5DaysForecastPane.setVisible(true);
         thatCity5DaysForecastPane.setVisible(true);
+    }
 
+    private void clearTextInputFields() {
+        presentCityInput.setText("");
+        destinationCityInput.setText("");
     }
 
     private void showCurrentWeatherFieldsInPresentCity(WeatherDataModel presentCityDataModel) {
