@@ -9,25 +9,25 @@
 
 <Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="867.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.arturzgodka.weatherapp.controller.MainWindowController">
    <children>
-      <Label layoutX="32.0" layoutY="46.0" prefHeight="18.0" prefWidth="73.0" text="To miasto">
+      <Label layoutX="24.0" layoutY="46.0" prefHeight="18.0" prefWidth="73.0" text="Present city">
          <font>
             <Font name="Lato Regular" size="14.0" />
          </font></Label>
-      <Label layoutX="476.0" layoutY="46.0" prefHeight="18.0" prefWidth="95.0" text="Tamto miasto">
+      <Label layoutX="466.0" layoutY="46.0" prefHeight="18.0" prefWidth="105.0" text="Destination city">
          <font>
             <Font name="Lato Regular" size="14.0" />
          </font></Label>
       <TextField fx:id="presentCityInput" layoutX="105.0" layoutY="42.0" prefHeight="25.0" prefWidth="279.0" />
       <TextField fx:id="destinationCityInput" layoutX="571.0" layoutY="42.0" prefHeight="25.0" prefWidth="266.0" />
-      <Button fx:id="checkWeatherBtn" layoutX="381.0" layoutY="102.0" mnemonicParsing="false" onAction="#checkWeatherBtnAction" text="Sprawdź pogodę">
+      <Button fx:id="checkWeatherBtn" layoutX="381.0" layoutY="102.0" mnemonicParsing="false" onAction="#checkWeatherBtnAction" text="Check weather">
          <font>
             <Font name="Lato Regular" size="14.0" />
          </font></Button>
-      <Pane fx:id="thisCityTodayWeatherPane" layoutX="42.0" layoutY="159.0" prefHeight="200.0" prefWidth="364.0">
+      <Pane fx:id="thisCityTodayWeatherPane" layoutX="42.0" layoutY="159.0" prefHeight="200.0" prefWidth="364.0" visible="false">
          <children>
             <Label fx:id="thisCityNameLabel" layoutX="34.0" layoutY="14.0" prefHeight="17.0" prefWidth="142.0" textFill="#f77c18">
                <font>
-                  <Font name="Lato Bold" size="16.0" />
+                  <Font name="Lato Bold" size="18.0" />
                </font></Label>
             <Label fx:id="thisCityCurrentDate" layoutX="187.0" layoutY="14.0" prefHeight="17.0" prefWidth="161.0">
                <font>
@@ -75,65 +75,85 @@
       <Label fx:id="errorMessageOutput" layoutX="348.0" layoutY="14.0" prefHeight="17.0" prefWidth="279.0" />
       <Pane fx:id="thisCity5DaysForecastPane" layoutX="42.0" layoutY="401.0" prefHeight="230.0" prefWidth="364.0" visible="false">
          <children>
-            <Label fx:id="thisCityDay1Temp" layoutX="44.0" layoutY="79.0" prefHeight="17.0" prefWidth="73.0" />
-            <Label fx:id="thisCityDay2Temp" layoutX="44.0" layoutY="104.0" prefHeight="17.0" prefWidth="73.0" />
-            <Label fx:id="thisCityDay3Temp" layoutX="44.0" layoutY="129.0" prefHeight="17.0" prefWidth="73.0" />
-            <Label fx:id="thisCityDay4Temp" layoutX="44.0" layoutY="155.0" prefHeight="17.0" prefWidth="73.0" />
-            <Label fx:id="thisCityDay5Temp" layoutX="44.0" layoutY="184.0" prefHeight="17.0" prefWidth="73.0" />
-            <Label fx:id="thisCityDay1Pressure" layoutX="102.0" layoutY="76.0" prefHeight="17.0" prefWidth="60.0" />
-            <Label fx:id="thisCityDay1Description" layoutX="174.0" layoutY="78.0" prefHeight="17.0" prefWidth="95.0" />
-            <Label fx:id="thisCityDay1Date" layoutX="277.0" layoutY="78.0" prefHeight="17.0" prefWidth="73.0" />
-            <Label fx:id="thisCityDay2Pressure" layoutX="102.0" layoutY="102.0" prefHeight="17.0" prefWidth="60.0" />
-            <Label fx:id="thisCityDay2Description" layoutX="174.0" layoutY="104.0" prefHeight="17.0" prefWidth="95.0" />
-            <Label fx:id="thisCityDay2Date" layoutX="277.0" layoutY="104.0" prefHeight="17.0" prefWidth="73.0" />
-            <Label fx:id="thisCityDay3Pressure" layoutX="102.0" layoutY="127.0" prefHeight="17.0" prefWidth="60.0" />
-            <Label fx:id="thisCityDay3Description" layoutX="174.0" layoutY="129.0" prefHeight="17.0" prefWidth="95.0" />
-            <Label fx:id="thisCityDay3Date" layoutX="277.0" layoutY="129.0" prefHeight="17.0" prefWidth="73.0" />
-            <Label fx:id="thisCityDay4Pressure" layoutX="102.0" layoutY="153.0" prefHeight="17.0" prefWidth="60.0" />
-            <Label fx:id="thisCityDay4Description" layoutX="174.0" layoutY="155.0" prefHeight="17.0" prefWidth="95.0" />
-            <Label fx:id="thisCityDay4Date" layoutX="277.0" layoutY="156.0" prefHeight="17.0" prefWidth="73.0" />
-            <Label fx:id="thisCityDay5Pressure" layoutX="102.0" layoutY="182.0" prefHeight="17.0" prefWidth="60.0" />
-            <Label fx:id="thisCityDay5Description" layoutX="174.0" layoutY="184.0" prefHeight="17.0" prefWidth="95.0" />
-            <Label fx:id="thisCityDay5Date" layoutX="277.0" layoutY="184.0" prefHeight="17.0" prefWidth="73.0" />
-            <Label fx:id="thisCity5DaysForecastTemperatureHeader" layoutX="44.0" layoutY="29.0" text="Temp." />
-            <Label fx:id="thisCity5DaysForecastPressureHeader" layoutX="102.0" layoutY="29.0" text="Press." />
-            <Label fx:id="thisCity5DaysForecastDescriptionHeader" layoutX="174.0" layoutY="29.0" text="Description" />
-            <Label fx:id="thisCity5DaysForecastDateHeader" layoutX="277.0" layoutY="29.0" text="Date" />
+            <Label fx:id="thisCityDay1Temp" alignment="BASELINE_LEFT" layoutX="41.0" layoutY="85.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thisCityDay2Temp" alignment="BASELINE_LEFT" layoutX="41.0" layoutY="110.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thisCityDay3Temp" alignment="BASELINE_LEFT" layoutX="41.0" layoutY="135.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thisCityDay4Temp" alignment="BASELINE_LEFT" layoutX="41.0" layoutY="161.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thisCityDay5Temp" alignment="BASELINE_LEFT" layoutX="40.0" layoutY="187.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thisCityDay1Pressure" alignment="BASELINE_LEFT" layoutX="102.0" layoutY="84.0" prefHeight="17.0" prefWidth="60.0" />
+            <Label fx:id="thisCityDay1Description" alignment="BASELINE_LEFT" layoutX="174.0" layoutY="83.0" prefHeight="17.0" prefWidth="95.0" />
+            <Label fx:id="thisCityDay1Date" alignment="BASELINE_LEFT" layoutX="277.0" layoutY="83.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thisCityDay2Pressure" alignment="BASELINE_LEFT" layoutX="102.0" layoutY="110.0" prefHeight="17.0" prefWidth="60.0" />
+            <Label fx:id="thisCityDay2Description" alignment="BASELINE_LEFT" layoutX="174.0" layoutY="109.0" prefHeight="17.0" prefWidth="95.0" />
+            <Label fx:id="thisCityDay2Date" alignment="BASELINE_LEFT" layoutX="277.0" layoutY="109.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thisCityDay3Pressure" alignment="BASELINE_LEFT" layoutX="102.0" layoutY="135.0" prefHeight="17.0" prefWidth="60.0" />
+            <Label fx:id="thisCityDay3Description" alignment="BASELINE_LEFT" layoutX="174.0" layoutY="134.0" prefHeight="17.0" prefWidth="95.0" />
+            <Label fx:id="thisCityDay3Date" alignment="BASELINE_LEFT" layoutX="277.0" layoutY="134.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thisCityDay4Pressure" alignment="BASELINE_LEFT" layoutX="102.0" layoutY="161.0" prefHeight="17.0" prefWidth="60.0" />
+            <Label fx:id="thisCityDay4Description" alignment="BASELINE_LEFT" layoutX="174.0" layoutY="160.0" prefHeight="17.0" prefWidth="95.0" />
+            <Label fx:id="thisCityDay4Date" alignment="BASELINE_LEFT" layoutX="277.0" layoutY="161.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thisCityDay5Pressure" alignment="BASELINE_LEFT" layoutX="101.0" layoutY="187.0" prefHeight="17.0" prefWidth="60.0" />
+            <Label fx:id="thisCityDay5Description" alignment="BASELINE_LEFT" layoutX="173.0" layoutY="186.0" prefHeight="17.0" prefWidth="95.0" />
+            <Label fx:id="thisCityDay5Date" alignment="BASELINE_LEFT" layoutX="276.0" layoutY="186.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thisCity5DaysForecastTemperatureHeader" alignment="CENTER" layoutX="43.0" layoutY="47.0" text="Temp." />
+            <Label fx:id="thisCity5DaysForecastPressureHeader" alignment="CENTER" layoutX="101.0" layoutY="47.0" text="Press." />
+            <Label fx:id="thisCity5DaysForecastDescriptionHeader" alignment="CENTER" layoutX="173.0" layoutY="47.0" text="Weather" />
+            <Label fx:id="thisCity5DaysForecastDateHeader" alignment="CENTER" layoutX="276.0" layoutY="47.0" text="Date" />
+            <Label layoutX="41.0" layoutY="14.0" prefHeight="18.0" prefWidth="122.0" text="Next days forecast">
+               <font>
+                  <Font name="Lato Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="thisCityNameLabelForecast" layoutX="190.0" layoutY="12.0" prefHeight="17.0" prefWidth="142.0" textFill="#f77c18">
+               <font>
+                  <Font name="Lato Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <Pane fx:id="thatCity5DaysForecastPane" focusTraversable="true" layoutX="473.0" layoutY="401.0" prefHeight="230.0" prefWidth="364.0" visible="false">
          <children>
-            <Label fx:id="thatCityDay1Temp" layoutX="44.0" layoutY="78.0" prefHeight="17.0" prefWidth="73.0" />
-            <Label fx:id="thatCityDay2Temp" layoutX="44.0" layoutY="103.0" prefHeight="17.0" prefWidth="73.0" />
-            <Label fx:id="thatCityDay3Temp" layoutX="44.0" layoutY="128.0" prefHeight="17.0" prefWidth="73.0" />
-            <Label fx:id="thatCityDay4Temp" layoutX="44.0" layoutY="154.0" prefHeight="17.0" prefWidth="73.0" />
-            <Label fx:id="thatCityDay5Temp" layoutX="44.0" layoutY="183.0" prefHeight="17.0" prefWidth="73.0" />
-            <Label fx:id="thatCityDay1Pressure" layoutX="102.0" layoutY="77.0" prefHeight="17.0" prefWidth="60.0" />
-            <Label fx:id="thatCityDay1Description" layoutX="174.0" layoutY="77.0" prefHeight="17.0" prefWidth="95.0" />
-            <Label fx:id="thatCityDay1Date" layoutX="277.0" layoutY="77.0" prefHeight="17.0" prefWidth="73.0" />
-            <Label fx:id="thatCityDay2Pressure" layoutX="102.0" layoutY="103.0" prefHeight="17.0" prefWidth="60.0" />
-            <Label fx:id="thatCityDay2Description" layoutX="174.0" layoutY="103.0" prefHeight="17.0" prefWidth="95.0" />
-            <Label fx:id="thatCityDay2Date" layoutX="277.0" layoutY="103.0" prefHeight="17.0" prefWidth="73.0" />
-            <Label fx:id="thatCityDay3Pressure" layoutX="102.0" layoutY="128.0" prefHeight="17.0" prefWidth="60.0" />
-            <Label fx:id="thatCityDay3Description" layoutX="174.0" layoutY="128.0" prefHeight="17.0" prefWidth="95.0" />
-            <Label fx:id="thatCityDay3Date" layoutX="277.0" layoutY="128.0" prefHeight="17.0" prefWidth="73.0" />
-            <Label fx:id="thatCityDay4Pressure" layoutX="102.0" layoutY="154.0" prefHeight="17.0" prefWidth="60.0" />
-            <Label fx:id="thatCityDay4Description" layoutX="174.0" layoutY="154.0" prefHeight="17.0" prefWidth="95.0" />
-            <Label fx:id="thatCityDay4Date" layoutX="277.0" layoutY="155.0" prefHeight="17.0" prefWidth="73.0" />
-            <Label fx:id="thatCityDay5Pressure" layoutX="102.0" layoutY="183.0" prefHeight="17.0" prefWidth="60.0" />
-            <Label fx:id="thatCityDay5Description" layoutX="174.0" layoutY="183.0" prefHeight="17.0" prefWidth="95.0" />
-            <Label fx:id="thatCityDay5Date" layoutX="277.0" layoutY="183.0" prefHeight="17.0" prefWidth="73.0" />
-            <Label fx:id="thatCity5DaysForecastTemperatureHeader" layoutX="44.0" layoutY="30.0" text="Temp." />
-            <Label fx:id="thatCity5DaysForecastPressureHeader" layoutX="102.0" layoutY="30.0" text="Press." />
-            <Label fx:id="thatCity5DaysForecastDescriptionHeader" layoutX="174.0" layoutY="30.0" text="Description" />
-            <Label fx:id="thatCity5DaysForecastDateHeader" layoutX="277.0" layoutY="30.0" text="Date" />
+            <Label fx:id="thatCityDay1Temp" layoutX="43.0" layoutY="80.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thatCityDay2Temp" layoutX="43.0" layoutY="105.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thatCityDay3Temp" layoutX="43.0" layoutY="130.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thatCityDay4Temp" layoutX="43.0" layoutY="156.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thatCityDay5Temp" layoutX="43.0" layoutY="185.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thatCityDay1Pressure" layoutX="101.0" layoutY="79.0" prefHeight="17.0" prefWidth="60.0" />
+            <Label fx:id="thatCityDay1Description" layoutX="173.0" layoutY="79.0" prefHeight="17.0" prefWidth="95.0" />
+            <Label fx:id="thatCityDay1Date" layoutX="276.0" layoutY="79.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thatCityDay2Pressure" layoutX="101.0" layoutY="105.0" prefHeight="17.0" prefWidth="60.0" />
+            <Label fx:id="thatCityDay2Description" layoutX="173.0" layoutY="105.0" prefHeight="17.0" prefWidth="95.0" />
+            <Label fx:id="thatCityDay2Date" layoutX="276.0" layoutY="105.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thatCityDay3Pressure" layoutX="101.0" layoutY="130.0" prefHeight="17.0" prefWidth="60.0" />
+            <Label fx:id="thatCityDay3Description" layoutX="173.0" layoutY="130.0" prefHeight="17.0" prefWidth="95.0" />
+            <Label fx:id="thatCityDay3Date" layoutX="276.0" layoutY="130.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thatCityDay4Pressure" layoutX="101.0" layoutY="156.0" prefHeight="17.0" prefWidth="60.0" />
+            <Label fx:id="thatCityDay4Description" layoutX="173.0" layoutY="156.0" prefHeight="17.0" prefWidth="95.0" />
+            <Label fx:id="thatCityDay4Date" layoutX="276.0" layoutY="157.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thatCityDay5Pressure" layoutX="101.0" layoutY="185.0" prefHeight="17.0" prefWidth="60.0" />
+            <Label fx:id="thatCityDay5Description" layoutX="173.0" layoutY="185.0" prefHeight="17.0" prefWidth="95.0" />
+            <Label fx:id="thatCityDay5Date" layoutX="276.0" layoutY="185.0" prefHeight="17.0" prefWidth="73.0" />
+            <Label fx:id="thatCity5DaysForecastTemperatureHeader" layoutX="44.0" layoutY="46.0" text="Temp." />
+            <Label fx:id="thatCity5DaysForecastPressureHeader" layoutX="102.0" layoutY="46.0" text="Press." />
+            <Label fx:id="thatCity5DaysForecastDescriptionHeader" layoutX="174.0" layoutY="46.0" text="Weather" />
+            <Label fx:id="thatCity5DaysForecastDateHeader" layoutX="277.0" layoutY="46.0" text="Date" />
+            <Label layoutX="44.0" layoutY="14.0" prefHeight="18.0" prefWidth="122.0" text="Next days forecast">
+               <font>
+                  <Font name="Lato Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="thatCityNameLabelForecast" layoutX="186.0" layoutY="12.0" prefHeight="17.0" prefWidth="142.0" textFill="#f77c18">
+               <font>
+                  <Font name="Lato Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
-      <Pane fx:id="thatCityTodayWeatherPane" layoutX="473.0" layoutY="159.0" prefHeight="200.0" prefWidth="364.0">
+      <Pane fx:id="thatCityTodayWeatherPane" layoutX="473.0" layoutY="159.0" prefHeight="200.0" prefWidth="364.0" visible="false">
          <children>
             <Label fx:id="thatCityNameLabel" layoutX="34.0" layoutY="14.0" prefHeight="17.0" prefWidth="142.0" textFill="#f77c18">
                <font>
-                  <Font name="Lato Bold" size="16.0" />
+                  <Font name="Lato Bold" size="18.0" />
                </font>
             </Label>
             <Label fx:id="thatCityCurrentDate" layoutX="187.0" layoutY="14.0" prefHeight="17.0" prefWidth="161.0">

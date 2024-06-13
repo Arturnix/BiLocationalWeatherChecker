@@ -34,7 +34,7 @@ public class MainWindowController {
     private Label thatCity5DaysForecastTemperatureHeader, thatCity5DaysForecastPressureHeader, thatCity5DaysForecastDescriptionHeader, thatCity5DaysForecastDateHeader;
 
     @FXML
-    private Label thatCityNameLabel, thatCityTemperature, thatCityPressure, thatCityHumidity, thatCityWeatherDescription, thatCityCurrentDate;
+    private Label thatCityNameLabel, thatCityNameLabelForecast, thatCityTemperature, thatCityPressure, thatCityHumidity, thatCityWeatherDescription, thatCityCurrentDate;
 
     @FXML
     private Label thatCityTemperatureValue, thatCityPressureValue, thatCityHumidityValue, thatCityWeatherDescriptionValue;
@@ -73,7 +73,7 @@ public class MainWindowController {
     private Label thisCityDay5Temp, thisCityDay5Pressure, thisCityDay5Description, thisCityDay5Date;
 
     @FXML
-    private Label thisCityNameLabel, thisCityTemperature, thisCityPressure, thisCityHumidity, thisCityWeatherDescription, thisCityCurrentDate;
+    private Label thisCityNameLabel, thisCityNameLabelForecast, thisCityTemperature, thisCityPressure, thisCityHumidity, thisCityWeatherDescription, thisCityCurrentDate;
 
     @FXML
     private Label thisCityTemperatureValue, thisCityPressureValue, thisCityHumidityValue, thisCityWeatherDescriptionValue;
@@ -142,6 +142,7 @@ public class MainWindowController {
     private void showCurrentWeatherFieldsInPresentCity(WeatherDataModel presentCityDataModel) {
         //zrobic transformacje stref czasowych aby pokazywac wlasciwe wartosci obecnej godziny i daty na miesjcu
         thisCityNameLabel.setText(presentCityDataModel.getCityName());
+        thisCityNameLabelForecast.setText(presentCityDataModel.getCityName());
         thisCityCurrentDate.setText(provideLocalDateAndTime(convertTimeStampToLocalTimeZoneUTC(presentCityDataModel.getTimeStamp(), presentCityDataModel.getTimezoneSecondsFromUTC())));
         thisCityTemperature.setText("Temperature:");
         thisCityTemperatureValue.setText(presentCityDataModel.getTempCelsius() + " \u2103");
@@ -157,6 +158,7 @@ public class MainWindowController {
     private void showCurrentWeatherFieldsInDestinationCity(WeatherDataModel destinationCityDataModel) {
         //zrobic transformacje stref czasowych aby pokazywac wlasciwe wartosci obecnej godziny i daty na miesjcu
         thatCityNameLabel.setText(destinationCityDataModel.getCityName());
+        thatCityNameLabelForecast.setText(destinationCityDataModel.getCityName());
         thatCityCurrentDate.setText(provideLocalDateAndTime(convertTimeStampToLocalTimeZoneUTC(destinationCityDataModel.getTimeStamp(), destinationCityDataModel.getTimezoneSecondsFromUTC())));
         thatCityTemperature.setText("Temperature:");
         thatCityTemperatureValue.setText(destinationCityDataModel.getTempCelsius() + " \u2103");
