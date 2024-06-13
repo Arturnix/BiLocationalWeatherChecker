@@ -109,13 +109,8 @@ public class MainWindowController {
             WeatherDataModel presentCityDataModel = weatherMapper.fetchWeatherToDataModel(WeatherClient.buildPresentCityUrl(presentCityInput.getText()));
             WeatherDataModel destinationCityDataModel = weatherMapper.fetchWeatherToDataModel(WeatherClient.buildDestinationCityUrl(destinationCityInput.getText()));
 
-            System.out.println(presentCityDataModel.toString());
-            System.out.println(destinationCityDataModel.toString());
-
             showCurrentWeatherFieldsInPresentCity(presentCityDataModel);
             showCurrentWeatherFieldsInDestinationCity(destinationCityDataModel);
-
-            System.out.println(weather5DaysForecastMapper.fetchWeatherToDataModel(WeatherClient.buildPresentCityUrl5DaysForecast(presentCityInput.getText())));
 
             showPresentCity5DaysForecast(presentCity5DaysForecast, weather5DaysForecastMapper);
             showDestinationCity5DaysForecast(destinationCity5DaysForecast, weather5DaysForecastMapper);
