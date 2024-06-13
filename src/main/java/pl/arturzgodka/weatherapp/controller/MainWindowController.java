@@ -35,6 +35,9 @@ public class MainWindowController {
     private Label thatCityNameLabel, thatCityTemperature, thatCityPressure, thatCityHumidity, thatCityWeatherDescription, thatCityCurrentDate;
 
     @FXML
+    private Label thatCityTemperatureValue, thatCityPressureValue, thatCityHumidityValue, thatCityWeatherDescriptionValue;
+
+    @FXML
     private Label thatCityDay1Temp, thatCityDay1Pressure, thatCityDay1Description, thatCityDay1Date;
 
     @FXML
@@ -69,6 +72,9 @@ public class MainWindowController {
 
     @FXML
     private Label thisCityNameLabel, thisCityTemperature, thisCityPressure, thisCityHumidity, thisCityWeatherDescription, thisCityCurrentDate;
+
+    @FXML
+    private Label thisCityTemperatureValue, thisCityPressureValue, thisCityHumidityValue, thisCityWeatherDescriptionValue;
 
     @FXML
     private Pane thisCityTodayWeatherPane, thisCity5DaysForecastPane;
@@ -132,20 +138,28 @@ public class MainWindowController {
         //zrobic transformacje stref czasowych aby pokazywac wlasciwe wartosci obecnej godziny i daty na miesjcu
         thisCityNameLabel.setText(presentCityDataModel.getCityName());
         thisCityCurrentDate.setText(provideLocalDateAndTime(convertTimeStampToLocalTimeZoneUTC(presentCityDataModel.getTimeStamp(), presentCityDataModel.getTimezoneSecondsFromUTC())));
-        thisCityTemperature.setText("Temperature: " + presentCityDataModel.getTempCelsius() + " \u2103");
-        thisCityPressure.setText("Pressure: " + presentCityDataModel.getPressure() + " hPa");
-        thisCityHumidity.setText("Humidity: " + presentCityDataModel.getHumidityPercentage() + "%");
-        thisCityWeatherDescription.setText("Weather condition: " + presentCityDataModel.getDescription());
+        thisCityTemperature.setText("Temperature:");
+        thisCityTemperatureValue.setText(presentCityDataModel.getTempCelsius() + " \u2103");
+        thisCityPressure.setText("Pressure:");
+        thisCityPressureValue.setText(presentCityDataModel.getPressure() + " hPa");
+        thisCityHumidity.setText("Humidity:");
+        thisCityHumidityValue.setText(presentCityDataModel.getHumidityPercentage() + "%");
+        thisCityWeatherDescription.setText("Weather: ");
+        thisCityWeatherDescriptionValue.setText(presentCityDataModel.getDescription());
     }
 
     private void showCurrentWeatherFieldsInDestinationCity(WeatherDataModel destinationCityDataModel) {
         //zrobic transformacje stref czasowych aby pokazywac wlasciwe wartosci obecnej godziny i daty na miesjcu
         thatCityNameLabel.setText(destinationCityDataModel.getCityName());
         thatCityCurrentDate.setText(provideLocalDateAndTime(convertTimeStampToLocalTimeZoneUTC(destinationCityDataModel.getTimeStamp(), destinationCityDataModel.getTimezoneSecondsFromUTC())));
-        thatCityTemperature.setText("Temperature: " + destinationCityDataModel.getTempCelsius() + " \u2103");
-        thatCityPressure.setText("Pressure: " + destinationCityDataModel.getPressure() + " hPa");
-        thatCityHumidity.setText("Humidity: " + destinationCityDataModel.getHumidityPercentage() + "%");
-        thatCityWeatherDescription.setText("Weather condition: " + destinationCityDataModel.getDescription());
+        thatCityTemperature.setText("Temperature:");
+        thatCityTemperatureValue.setText(destinationCityDataModel.getTempCelsius() + " \u2103");
+        thatCityPressure.setText("Pressure:");
+        thatCityPressureValue.setText(destinationCityDataModel.getPressure() + " hPa");
+        thatCityHumidity.setText("Humidity:");
+        thatCityHumidityValue.setText(destinationCityDataModel.getHumidityPercentage() + "%");
+        thatCityWeatherDescription.setText("Weather:");
+        thatCityWeatherDescriptionValue.setText(destinationCityDataModel.getDescription());
     }
 
     private void showPresentCity5DaysForecast(List<WeatherDataModel> presentCity5DaysForecast, Weather5DaysForecastMapper weather5DaysForecastMapper) {
