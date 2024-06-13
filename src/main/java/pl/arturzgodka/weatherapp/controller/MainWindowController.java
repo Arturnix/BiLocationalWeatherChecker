@@ -7,7 +7,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
+import javafx.scene.image.ImageView;
 import pl.arturzgodka.weatherapp.APICredentials;
 import pl.arturzgodka.weatherapp.model.Weather5DaysForecastMapper;
 import pl.arturzgodka.weatherapp.model.WeatherClient;
@@ -83,6 +85,9 @@ public class MainWindowController {
     private Pane thatCityTodayWeatherPane, thatCity5DaysForecastPane;
 
     @FXML
+    private ImageView thisCityWeatherIcon, thatCityWeatherIcon;
+
+    @FXML
     private Pane mainPane;
 
     @FXML
@@ -146,6 +151,7 @@ public class MainWindowController {
         thisCityHumidityValue.setText(presentCityDataModel.getHumidityPercentage() + "%");
         thisCityWeatherDescription.setText("Weather: ");
         thisCityWeatherDescriptionValue.setText(presentCityDataModel.getDescription());
+        thisCityWeatherIcon.setImage(new Image("https://openweathermap.org/img/wn/" + presentCityDataModel.getWeatherIcon() + "@2x.png"));
     }
 
     private void showCurrentWeatherFieldsInDestinationCity(WeatherDataModel destinationCityDataModel) {
@@ -160,6 +166,7 @@ public class MainWindowController {
         thatCityHumidityValue.setText(destinationCityDataModel.getHumidityPercentage() + "%");
         thatCityWeatherDescription.setText("Weather:");
         thatCityWeatherDescriptionValue.setText(destinationCityDataModel.getDescription());
+        thatCityWeatherIcon.setImage(new Image("https://openweathermap.org/img/wn/" + destinationCityDataModel.getWeatherIcon() + "@2x.png"));
     }
 
     private void showPresentCity5DaysForecast(List<WeatherDataModel> presentCity5DaysForecast, Weather5DaysForecastMapper weather5DaysForecastMapper) {

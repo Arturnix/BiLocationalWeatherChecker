@@ -3,15 +3,16 @@ package pl.arturzgodka.weatherapp.model;
 public class WeatherDataModel {
     private final int tempCelsius;
     private final int pressure;
-    private  int humidityPercentage;
+    private int humidityPercentage;
     private final String description;
     private String cityName;
     private long timeStamp;
     private int timezoneSecondsFromUTC;
     private String dateAndTimeStampFetched;
+    private String weatherIcon;
 
 
-    public WeatherDataModel(int tempCelsius, int pressure, int humidityPercentage, String description, String cityName, long timeStamp, int timezoneSecondsFromUTC) {
+    public WeatherDataModel(int tempCelsius, int pressure, int humidityPercentage, String description, String cityName, long timeStamp, int timezoneSecondsFromUTC, String weatherIcon) {
         this.tempCelsius = tempCelsius;
         this.pressure = pressure;
         this.humidityPercentage = humidityPercentage;
@@ -19,6 +20,7 @@ public class WeatherDataModel {
         this.cityName = cityName;
         this.timeStamp = timeStamp;
         this.timezoneSecondsFromUTC = timezoneSecondsFromUTC;
+        this.weatherIcon = weatherIcon;
     }
 
     public WeatherDataModel(int tempCelsius, int pressure, String description, String dateAndTimeStampFetched) {
@@ -60,15 +62,20 @@ public class WeatherDataModel {
         return dateAndTimeStampFetched;
     }
 
+    public String getWeatherIcon() {
+        return weatherIcon;
+    }
+
     @Override
     public String toString() {
         return "WeatherDataModel{" +
                 "tempCelsius=" + tempCelsius +
                 ", pressure=" + pressure +
                 ", humidityPercentage=" + humidityPercentage +
-                ", description='" + description +
-                ", cityName='" + cityName +
-                ", timeStamp='" + timeStamp + '\'' +
+                ", description='" + description + '\'' +
+                ", cityName='" + cityName + + '\'' +
+                ", timeStamp='" + timeStamp +
+                ", icon='" + weatherIcon + '\'' +
                 '}';
     }
 }

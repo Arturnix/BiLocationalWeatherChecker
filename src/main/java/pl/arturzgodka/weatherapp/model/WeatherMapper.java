@@ -25,7 +25,8 @@ public class WeatherMapper {
                 node.get("weather").get(0).get("description").asText(),
                 node.get("name").asText(),
                 node.get("dt").asLong(),
-                node.get("timezone").asInt()
+                node.get("timezone").asInt(),
+                node.get("weather").get(0).get("icon").asText()
         );
     }
 }
