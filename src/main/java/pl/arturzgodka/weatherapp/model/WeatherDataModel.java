@@ -73,7 +73,7 @@ public class WeatherDataModel {
                 ", pressure=" + pressure +
                 ", humidityPercentage=" + humidityPercentage +
                 ", description='" + description + '\'' +
-                ", cityName='" + cityName + + '\'' +
+                ", cityName='" + cityName + '\'' +
                 ", timeStamp='" + timeStamp +
                 ", icon='" + weatherIcon + '\'' +
                 '}';

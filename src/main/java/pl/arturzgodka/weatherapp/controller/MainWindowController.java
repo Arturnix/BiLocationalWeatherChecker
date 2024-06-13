@@ -96,28 +96,37 @@ public class MainWindowController {
     @FXML
     void checkWeatherBtnAction() {
 
-        setPaneVisibilityFalse();
+        try {
 
-        WeatherMapper weatherMapper = new WeatherMapper();
-        Weather5DaysForecastMapper weather5DaysForecastMapper = new Weather5DaysForecastMapper();
-        List<WeatherDataModel> presentCity5DaysForecast = weather5DaysForecastMapper.fetchWeatherToDataModel(WeatherClient.buildPresentCityUrl5DaysForecast(presentCityInput.getText()));
-        List<WeatherDataModel> destinationCity5DaysForecast = weather5DaysForecastMapper.fetchWeatherToDataModel(WeatherClient.buildDestinationCityUrl5DaysForecast(destinationCityInput.getText()));
-        WeatherDataModel presentCityDataModel = weatherMapper.fetchWeatherToDataModel(WeatherClient.buildPresentCityUrl(presentCityInput.getText()));
-        WeatherDataModel destinationCityDataModel = weatherMapper.fetchWeatherToDataModel(WeatherClient.buildDestinationCityUrl(destinationCityInput.getText()));
-        System.out.println(presentCityDataModel.toString());
-        System.out.println(destinationCityDataModel.toString());
+            errorMessageOutput.setVisible(false);
+            setPaneVisibilityFalse();
 
-        showCurrentWeatherFieldsInPresentCity(presentCityDataModel);
-        showCurrentWeatherFieldsInDestinationCity(destinationCityDataModel);
+            WeatherMapper weatherMapper = new WeatherMapper();
+            Weather5DaysForecastMapper weather5DaysForecastMapper = new Weather5DaysForecastMapper();
+            List<WeatherDataModel> presentCity5DaysForecast = weather5DaysForecastMapper.fetchWeatherToDataModel(WeatherClient.buildPresentCityUrl5DaysForecast(presentCityInput.getText()));
+            List<WeatherDataModel> destinationCity5DaysForecast = weather5DaysForecastMapper.fetchWeatherToDataModel(WeatherClient.buildDestinationCityUrl5DaysForecast(destinationCityInput.getText()));
 
-        System.out.println(weather5DaysForecastMapper.fetchWeatherToDataModel(WeatherClient.buildPresentCityUrl5DaysForecast(presentCityInput.getText())));
+            WeatherDataModel presentCityDataModel = weatherMapper.fetchWeatherToDataModel(WeatherClient.buildPresentCityUrl(presentCityInput.getText()));
+            WeatherDataModel destinationCityDataModel = weatherMapper.fetchWeatherToDataModel(WeatherClient.buildDestinationCityUrl(destinationCityInput.getText()));
 
-        showPresentCity5DaysForecast(presentCity5DaysForecast, weather5DaysForecastMapper);
-        showDestinationCity5DaysForecast(destinationCity5DaysForecast, weather5DaysForecastMapper);
+            System.out.println(presentCityDataModel.toString());
+            System.out.println(destinationCityDataModel.toString());
 
-        clearTextInputFields();
-        setPaneVisibilityTrue();
+            showCurrentWeatherFieldsInPresentCity(presentCityDataModel);
+            showCurrentWeatherFieldsInDestinationCity(destinationCityDataModel);
 
+            System.out.println(weather5DaysForecastMapper.fetchWeatherToDataModel(WeatherClient.buildPresentCityUrl5DaysForecast(presentCityInput.getText())));
+
+            showPresentCity5DaysForecast(presentCity5DaysForecast, weather5DaysForecastMapper);
+            showDestinationCity5DaysForecast(destinationCity5DaysForecast, weather5DaysForecastMapper);
+
+            clearTextInputFields();
+            setPaneVisibilityTrue();
+
+        } catch (RuntimeException e) {
+            errorMessageOutput.setVisible(true);
+            errorMessageOutput.setText("City not found!");
+        }
     }
 
     private void setPaneVisibilityFalse() {
@@ -172,6 +181,7 @@ public class MainWindowController {
     }
 
     private void showPresentCity5DaysForecast(List<WeatherDataModel> presentCity5DaysForecast, Weather5DaysForecastMapper weather5DaysForecastMapper) {
+
         showDay1WeatherInPresentCity(presentCity5DaysForecast, weather5DaysForecastMapper);
         showDay2WeatherInPresentCity(presentCity5DaysForecast, weather5DaysForecastMapper);
         showDay3WeatherInPresentCity(presentCity5DaysForecast, weather5DaysForecastMapper);
@@ -220,6 +230,7 @@ public class MainWindowController {
     }
 
     private void showDestinationCity5DaysForecast(List<WeatherDataModel> destinationCity5DaysForecast, Weather5DaysForecastMapper weather5DaysForecastMapper) {
+
         showDay1WeatherInDestinationCity(destinationCity5DaysForecast, weather5DaysForecastMapper);
         showDay2WeatherInDestinationCity(destinationCity5DaysForecast, weather5DaysForecastMapper);
         showDay3WeatherInDestinationCity(destinationCity5DaysForecast, weather5DaysForecastMapper);
