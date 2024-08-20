@@ -3,6 +3,7 @@ package pl.arturzgodka.weatherapp;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import pl.arturzgodka.weatherapp.model.WeatherClient;
 import pl.arturzgodka.weatherapp.view.ViewFactory;
 
 import java.io.IOException;
